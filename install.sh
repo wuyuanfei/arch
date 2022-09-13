@@ -363,14 +363,14 @@ function main() {
     stage2
   elif [ "$cmd" == "s3" ]; then
     stage3
-  elif [ "$cmd" == "-h" ]; then
+  elif [ "$cmd" == "h" ]; then
     echo -e "Example: bash install.sh s1|s2|s3|h"
     echo -e "  s1    archlinux first stage install"
     echo -e "  s2    archlinux second stage install"
     echo -e "  s3    archlinux third stage install, but 1-min install, 2-base install(without de) not support"
     echo -e "  h     show help info"
   else
-    echo -e "\033[${yellow}WARNING! unsupport parameter, use '-h' or '--help' show support parameters\033[0m"
+    echo -e "\033[${red}Error! use '$0 h' show help info\033[0m"
   fi
 }
 
@@ -385,7 +385,7 @@ fi
 # tar -uvf disk_data/01-software/linux/yeapht.tar.gz .config .ssh .p10k.zsh .zshrc Desktop Documents project software # backup
 
 function install_virtualbox() {
-    sudo pacman -S --noconfirm --needed virtualbox virtualbox-ext-oracle
-    sudo modprobe vboxdrv
-    # virtualbox-ext-oracle 位置/usr/share/licenses/virtualbox-ext-oracle
+  sudo pacman -S --noconfirm --needed virtualbox virtualbox-ext-oracle
+  sudo modprobe vboxdrv
+  # virtualbox-ext-oracle 位置/usr/share/licenses/virtualbox-ext-oracle
 }
